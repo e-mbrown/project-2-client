@@ -28,14 +28,7 @@ Include link to your google sheet here.  Here is the sample [Suresh had used in 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Do not include the actual image and have it render on the page.  
 
 - [Mobile](https://git.generalassemb.ly/SEIR-629/project-1-portfolio/blob/master/readme-assets/mobile.png)
-- [Tablet](https://git.generalassemb.ly/SEIR-629/project-1-portfolio/blob/master/readme-assets/nav-highlight.gif)
-- [Desktop](https://git.generalassemb.ly/SEIR-629/project-1-portfolio/blob/master/readme-assets/desktop.png)
-
-Wireframing Resources:
-
-- [Mockflow](https://mockflow.com/app/#Wireframe)
-- [Figma](https://www.figma.com/)
-
+- [Desktop](https://www.figma.com/file/iEDITM43sRj7voPACBZCYX/Untitled?node-id=5%3A113)
 
 ## Time/Priority Matrix 
 
@@ -78,7 +71,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Gridding | H | 2hrs | -hr | -hr|
 | Regular Nav | H | 2hrs | -hr | -hr|
 | Content placement| H | 4hrs | -hr | -hr|
-| Working with APIS | H | 6hrs| -hr | -hr |
+| Working with APIS | H | 6hrs| -hr 40mins | -hr |
 | Responsive | H | 5hrs | -hr | -hr|
 | Social Media Icons | L | 1hr | -hr | -hr|
 | Total | H | 25hrs| -hrs | -hrs |
@@ -90,7 +83,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Research | L | 3hrs | -hr | -hr|
 | Add visual complexity| M | 6hrs | -hr | -hr|
 | Materialize | H | 4hrs | -hr | -hr|
-| Bootstrap | H | 4hrs | -hr | -hr|
+| Bootstrap | H | 4hrs | 2hr | -hr|
 | Add form | L | 2hrs | -hr | -hr|
 | Total | H | 25hrs| -hrs | -hrs |
 
