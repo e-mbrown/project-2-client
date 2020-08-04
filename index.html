@@ -89,27 +89,83 @@
 
   <!-- Popup Modal -->
       <div class="modal fade" tabindex="-1" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <section class="container-fluid">
-                  <div class="row">
-                    <div class="col-7" id="img"></div>
-                    <div class="col"id="info"></div>
-                  </div>
-                </section>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-warning del" data-dismiss="modal" id="del">Delete</button>
-                <button type="button" class="btn btn-primary active" id="edit">Save changes</button>
-              </div>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;
+                </span>
+              </button>
             </div>
+            <div class="modal-body">
+              <section class="container-fluid">
+                <div class="row">
+                  <div class="col-7" id="img"></div>
+                  <div class="col"id="info"></div>
+                </div>
+                <!-- FORM -->
+                <section id="editor" class="mt-3 container-fluid p-0">
+                  <select name="Choice" id="editChoice" class="form-control mb-3">
+                    <option value="null">Select</option>
+                    <option value="Comic">Comic</option>
+                    <option value="Illustration">Illustrations</option>
+                    <option value="Sketch">Sketches</option>
+                  </select>
+                  <!-- Text Fields -->
+                  <div class="input-group mb-3" id="edDiv">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">Description</span>
+                    </div>
+                    <textarea class="form-control" id="editDes"></textarea>
+                  </div>  
+                  <!-- Name -->
+                  <div class="input-group mb-3" id="enDiv">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Name</span>
+                    </div>
+                    <input type="text" class="form-control" id="editName">
+                  </div>
+                  <!-- Medium -->
+                  <div class="input-group mb-3" id="emDiv">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Medium</span>
+                    </div>
+                    <input type="text" class="form-control" id="editMedium">
+                  </div>
+                  <!-- Url -->
+                  <div class="input-group mb-3" id="euDiv">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Url</span>
+                    </div>
+                    <input type="text" class="form-control" id="editUrl">
+                  </div>
+                  <!-- Context -->
+                  <div class="input-group mb-3" id="ecDiv">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Context</span>
+                    </div>
+                    <input type="text" class="form-control" id="editContext">
+                  </div>
+                  <!-- Page and Genre -->
+                  <div class="input-group mb-3" id="epDiv">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Page and genre</span>
+                    </div>
+                    <input type="number" class="form-control" id="editPage">
+                    <input type="text" class="form-control" id="editGenre">
+                  </div>
+                  <button type="button" class="btn btn-primary editSubmit" id="editSubmit">Submit Edit</button>
+                </section>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning del" data-dismiss="modal" id="del">Delete</button>
+        <button type="button" class="btn btn-primary active edit" id="edit">Make changes</button>
+      </div>
+      <div>
           </div>
         </div>
   </div>

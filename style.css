@@ -14,3 +14,6 @@ img {
 #page {
     width:15%;
 }
+#editor > * {
+    display: none;
+}

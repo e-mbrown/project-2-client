@@ -70,8 +70,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Hamburger | H | 1hr | -hr | -hr|
 | Gridding | H | 2hrs | -hr | -hr|
 | Regular Nav | H | 2hrs | -hr | -hr|
-| Content placement| H | 4hrs | -hr | -hr|
-| Working with APIS | H | 6hrs| 5hr 26mins | -hr |
+| Content placement| H | 4hrs | 2hr | -hr|
+| Working with APIS | H | 6hrs| 8hr 06mins | 8hr 06mins |
 | Responsive | H | 5hrs | -hr | -hr|
 | Social Media Icons | L | 1hr | -hr | -hr|
 | Total | H | 25hrs| -hrs | -hrs |
