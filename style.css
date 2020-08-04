@@ -5,3 +5,12 @@ img {
 #imgM{
     width: 100%
 }
+#create > * {
+    display: none;
+}
+.input-group >.form-control{
+    width: 100%;
+}
+#page {
+    width:15%;
+}

@@ -28,7 +28,61 @@
     <!-- Side popup section -->
         <aside class="col">
           <div class="container-fluid text-center">
-            <button class="fetch">Start Upload</button>
+            <button class="fetch btn-primary btn">Upload</button>
+            
+            <section id="create" class="mt-3 container-fluid p-0">
+              <select name="Choice" id="choice" class="form-control mb-3">
+                <option value="null">Select</option>
+                <option value="Comic">Comic</option>
+                <option value="Illustration">Illustrations</option>
+                <option value="Sketch">Sketches</option>
+              </select>
+              <!-- Text Fields -->
+              <div class="input-group mb-3" id="dDiv">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Description</span>
+                </div>
+                <textarea class="form-control" id="description"></textarea>
+              </div>  
+              <!-- Name -->
+              <div class="input-group mb-3" id="nDiv">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Name</span>
+                </div>
+                <input type="text" class="form-control" id="name">
+              </div>
+              <!-- Medium -->
+              <div class="input-group mb-3" id="mDiv">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Medium</span>
+                </div>
+                <input type="text" class="form-control" id="medium">
+              </div>
+              <!-- Url -->
+              <div class="input-group mb-3" id="uDiv">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Url</span>
+                </div>
+                <input type="text" class="form-control" id="url">
+              </div>
+              <!-- Context -->
+              <div class="input-group mb-3" id="cDiv">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Context</span>
+                </div>
+                <input type="text" class="form-control" id="context">
+              </div>
+              <!-- Page and Genre -->
+              <div class="input-group mb-3" id="pDiv">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Page and genre</span>
+                </div>
+                <input type="number" class="form-control" id="page">
+                <input type="text" class="form-control" id="genre">
+              </div>
+              <button type="button" class="btn btn-primary" id="submit">Submit new Piece</button>
+            </section>
+          
           </div>
         </aside>
       </div>
