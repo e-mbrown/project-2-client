@@ -71,7 +71,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Gridding | H | 2hrs | -hr | -hr|
 | Regular Nav | H | 2hrs | -hr | -hr|
 | Content placement| H | 4hrs | -hr | -hr|
-| Working with APIS | H | 6hrs| -hr 40mins | -hr |
+| Working with APIS | H | 6hrs| 5hr 26mins | -hr |
 | Responsive | H | 5hrs | -hr | -hr|
 | Social Media Icons | L | 1hr | -hr | -hr|
 | Total | H | 25hrs| -hrs | -hrs |

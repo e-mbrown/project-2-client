@@ -7,7 +7,7 @@ const $container = $('.container');
 const $addinput = $('#submit')
 const $openForm= $('.fetch');
 const $editButton = $('#edit');
-const $del = $('#del');
+const $del = $('.del');
 
 ////FUNCTIONS
 const getData = async () =>{
@@ -18,21 +18,26 @@ const getData = async () =>{
     //Populate Container with images
     
     data.forEach((piece) => {
-    const $link = $('<a>').attr('href', '#exampleModal').attr('data-toggle', 'modal')
+    const $link = $('<a>').attr('href', '#exampleModal').attr('data-toggle', 'modal');
     const $image = $('<img>').attr('src', piece.url);
     $link.append($image);
     $link.on('click', () => fillModal(piece));
     $container.append($link);
     });
 };
-//  DISPLAY IMAGES WITH NO FILTER FOR HOMEPAGE
+//  FILL MODAL
 const fillModal = (imageData) => {
     $('#info').empty();
     $('#img').empty();
+    
     $('#exampleModalLabel').text(imageData.name);
     const $img = $('<img>').attr('src', imageData.url).attr('id', 'imgM');
     const $description = $('<p>')
-    // Populate based on type of image
+    //DELETE BUTTON ID
+    $del.attr('id', `${imageData._id}`)
+    $del.on('click', () => deleteArt);
+
+    // POPULATE MODAL BASED ON IMAGE TYPE
         if(imageData.artType == 'Sketch'){
             $description.text(`${imageData.description}. It's made using ${imageData.medium}.`);
         }
@@ -51,6 +56,7 @@ const fillModal = (imageData) => {
 };
 
 ////  ADD ART
+///////////////////////
 
 $openForm.on('click', () => openForm())
 const openForm = () =>{
@@ -85,7 +91,6 @@ const getOptions = (choice) =>{
         $('#uDiv').toggle(700);
         $('#submit').toggle(700);
     };
-   
 }
 
 $('select#choice').on('change', () => {
@@ -129,10 +134,29 @@ const createArt = async () => {
             url: $('#url').val()
         }
     }
-//SEND REQUEST TO API  
-    console.log(newArt)
+    //SEND REQUEST TO API  
+    const response = await fetch(`${URL}/art`, {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newArt)
+    });
+    // Update DOM
+    $container.empty();
+    getData();
 }
+//  DELETE ART
+///////////////////////////
 
+
+const deleteArt = async (event) => {
+    //REQUEST
+   console.log(event)
+   // Update DOM
+    $container.empty();
+    getData();  
+}
 
 
 
