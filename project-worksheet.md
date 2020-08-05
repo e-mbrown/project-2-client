@@ -8,10 +8,10 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Day 1| Project Description | Incomplete
+|Day 1| Project Description | Complete
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
-|Day 2| Working RestAPI | Incomplete
-|Day 3| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|Day 2| Working RestAPI | Complete
+|Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
 |Day 4| MVP & Bug Fixes | Incomplete
 |Day 5| Final Touches and Present | Incomplete
 
@@ -68,10 +68,10 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Hamburger | H | 1hr | -hr | -hr|
-| Gridding | H | 2hrs | -hr | -hr|
-| Regular Nav | H | 2hrs | -hr | -hr|
+| Gridding | H | 2hrs | 2hr | 2hr|
+| Regular Nav | H | 2hrs | -hr 30mins | -hr 30mins|
 | Content placement| H | 4hrs | 2hr | -hr|
-| Working with APIS | H | 6hrs| 8hr 06mins | 8hr 06mins |
+| Working with APIS | H | 6hrs| 6hr 06mins | 6hr 06mins |
 | Responsive | H | 5hrs | -hr | -hr|
 | Social Media Icons | L | 1hr | -hr | -hr|
 | Total | H | 25hrs| -hrs | -hrs |
@@ -80,15 +80,15 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Gallery View | L | 6hrs | -hr | -hr|
-| Research | L | 3hrs | -hr | -hr|
 | Add visual complexity| M | 6hrs | -hr | -hr|
 | Materialize | H | 4hrs | -hr | -hr|
-| Bootstrap | H | 4hrs | 2hr | -hr|
-| Add form | L | 2hrs | -hr | -hr|
-| Total | H | 25hrs| -hrs | -hrs |
+| Bootstrap | H | 4hrs | 2hr | 2hr|
+| Add form | L | 2hrs | 1hr | 1hr|
+| Total | H | 22hrs| 2hrs | -hrs |
 
 ## Additional Libraries
  FontAwesome
+ Bootstrap
 
 ## Code Snippet
 
@@ -106,7 +106,3 @@ function reverse(string) {
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
 **RESOLUTION**: Missing comma after first object in sources {} object
-
-## Previous Project Worksheet
- - [Readme's](https://github.com/jkeohan/fewd-class-repo/tree/master/final-project-worksheet/project-worksheet-examples)
- - [Best of class readme](https://github.com/jkeohan/fewd-class-repo/blob/master/final-project-worksheet/project-worksheet-examples/portfolio-gracie.md)

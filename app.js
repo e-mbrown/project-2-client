@@ -20,7 +20,7 @@ const getData = async () =>{
     //Populate Container with images
     
     data.forEach((piece) => {
-    const $link = $('<a>').attr('href', '#exampleModal').attr('data-toggle', 'modal');
+    const $link = $('<a>').attr('href', '#exampleModal').attr('data-toggle', 'modal').attr('class', piece.artType);
     const $image = $('<img>').attr('src', piece.url);
     $link.append($image);
     $link.on('click', () => fillModal(piece));
@@ -33,6 +33,7 @@ const fillModal = (imageData) => {
     $('#info').empty();
     $('#img').empty();
     $('.input-group').css('display', 'none');
+   //   Refresh modal
     $editSubmit.css('display', 'none')
     $('.form-control').val('');
     
@@ -50,6 +51,7 @@ const fillModal = (imageData) => {
 
     // POPULATE MODAL BASED ON IMAGE TYPE
         if(imageData.artType == 'Sketch'){
+            
             $description.text(`${imageData.description}. It's made using ${imageData.medium}.`);
         }
         else if(imageData.artType == 'Comic'){
@@ -78,6 +80,7 @@ const openForm = () =>{
 
 const getOptions = (choice) =>{
     $('.input-group').css('display', 'none')
+    $('#submit').css('display', 'none')
 
     if(choice == 'Comic'){
         $('#dDiv').toggle(700);
@@ -111,18 +114,37 @@ $('select#choice').on('change', () => {
 
 //COLLECT DATA FROM CREATE FORM
 
-$addinput.on('click', () => createArt());
+$addinput.on('click', (event) => {
+    event.preventDefault()
+    getUrl(event)
+});
 
-const createArt = async () => {
+const getUrl = async (event) => {
+    let data = new FormData();
+    data.append('file', $('#url')[0].files[0])
+    
+    console.log(data)
+    let response = await fetch(`${URL}/api/upload`, {
+        method: "post",
+        body: data
+    });
+    let results = await response.json();
+    createArt( await results);
+}
+
+
+const createArt = async (url) => {
     x = $('#choice').val();
     let newArt =''
+    let uploaded = url.fileUrl;
+    console.log(uploaded)
     if(x == 'Illustration'){
         newArt ={
             name: $('#name').val(),
             medium: $('#medium').val(),
             artType: x,
             description: $('#description').val(),
-            url: $('#url').val(),
+            url: uploaded,
             context: $('#context').val()
 
         }
@@ -133,7 +155,7 @@ const createArt = async () => {
             medium: $('#medium').val(),
             artType: x,
             description: $('#description').val(),
-            url: $('#url').val(),
+            url: uploaded,
             page: $('#page').val(),
             genre: $('#genre').val()
         }
@@ -144,7 +166,7 @@ const createArt = async () => {
             medium: $('#medium').val(),
             artType: x,
             description: $('#description').val(),
-            url: $('#url').val()
+            url: uploaded
         }
     }
     //SEND REQUEST TO API  
@@ -254,7 +276,40 @@ const updateArt = async(id) =>{
     $container.empty();
     getData(); 
 }
+/// Change gallery
+$('#h').on('click', () => filter('Home'))
+$('#c').on('click', () => filter('Comic'))
+$('#i').on('click', () => filter('Illustration'))
+$('#s').on('click', () => filter('Sketch'))
+//$('#a').on('click', () => filter())
 
+
+
+const filter = (num) =>{
+    if(num == "Home") {
+        $('.Comic').css('display', 'inline')
+        $('.Illustration').css('display', 'inline')
+        $('.Sketch').css('display', 'inline')
+    }
+    else{
+        if(num == 'Comic'){
+            $('.Comic').css('display', 'inline')
+            $('.Illustration').css('display', 'none')
+            $('.Sketch').css('display', 'none')
+            console.log('comic click')
+        }
+        if(num == 'Illustration'){
+            $('.Illustration').css('display', 'inline')
+            $('.Comic').css('display', 'none')
+            $('.Sketch').css('display', 'none')
+        }
+        if(num == 'Sketch'){
+            $('.Sketch').css('display', 'inline')
+            $('.Comic').css('display', 'none')
+            $('.Illustration').css('display', 'none')
+        }
+    }
+}
 
 /////////////////////////////////
 getData()
