@@ -311,5 +311,26 @@ const filter = (num) =>{
     }
 }
 
+
+/////// Media query
+let x = window.matchMedia('(max-width: 790px)')
+
+const mediaQ = () => {
+    console.log($('body').width())
+    if(x.matches){
+        $('#media').removeClass('col')
+        $('#media').addClass('col-12')
+        $('#media2').removeClass('col-9')
+        $('#media2').addClass('col-12')
+    }
+    else{
+        $('#media').removeClass('col-12')
+        $('#media').addClass('col')
+        $('#media2').removeClass('col-12')
+        $('#media2').addClass('col-9')
+    }
+}
+mediaQ(x)
+x.addListener(mediaQ)
 /////////////////////////////////
 getData()

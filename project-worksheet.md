@@ -17,7 +17,7 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Project Description
 
-A single page art portfolio site that uses jquery to repopulate pages with content pulled from the imagerebs api. It will have four main page categories and two subpage categories. It will have mobile functionality.
+A single page control panel for an art portfolio site that uses jquery to repopulate pages with content pulled from the imagerebs api. It will have four main page categories and two subpage categories. It will have mobile functionality.
 
 ## Google Sheet
 
@@ -67,14 +67,12 @@ Time frames are also key in the development cycle.  You have limited time to cod
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Hamburger | H | 1hr | -hr | -hr|
 | Gridding | H | 2hrs | 2hr | 2hr|
 | Regular Nav | H | 2hrs | -hr 30mins | -hr 30mins|
 | Content placement| H | 4hrs | 2hr | -hr|
-| Working with APIS | H | 6hrs| 6hr 06mins | 6hr 06mins |
-| Responsive | H | 5hrs | -hr | -hr|
-| Social Media Icons | L | 1hr | -hr | -hr|
-| Total | H | 25hrs| -hrs | -hrs |
+| Working with APIS | H | 6hrs| 6hr 06mins | 8hr 06mins |
+| Responsive | H | 5hrs | 1hr | 1hr|
+| Total | H | 24hrs| -hrs | -hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
@@ -95,9 +93,25 @@ Time frames are also key in the development cycle.  You have limited time to cod
 Use this section to include a brief code snippet of functionality that you are proud of an a brief description  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+let x = window.matchMedia('(max-width: 790px)')
+
+const mediaQ = () => {
+    console.log($('body').width())
+    if(x.matches){
+        $('#media').removeClass('col')
+        $('#media').addClass('col-8')
+        $('#media2').removeClass('col-9')
+        $('#media2').addClass('col-12')
+    }
+    else{
+        $('#media').removeClass('col-8')
+        $('#media').addClass('col')
+        $('#media2').removeClass('col-12')
+        $('#media2').addClass('col-9')
+    }
 }
+mediaQ(x)
+x.addListener(mediaQ)
 ```
 
 ## Issues and Resolutions

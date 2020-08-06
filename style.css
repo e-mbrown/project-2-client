@@ -17,3 +17,23 @@ img {
 #editor > * {
     display: none;
 }
+.fa {
+    font-size: 50px;
+}
+@media (max-width: 790px) {
+    .col-9,
+    .col {
+        width: 100%;
+
+    }
+}
+@media (min-width: 791px) and (max-width: 991px) {
+    .col-9,
+    .col {
+        width: 50%;
+    }
+    .col-9 
+    .col{
+        width: 100%;
+    }
+}
