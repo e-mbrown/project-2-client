@@ -1,6 +1,8 @@
 //SETTING URL
-const deployedURL = null;
+const deployedURL ='https://imagerebs.herokuapp.com';
 const URL = deployedURL ? deployedURL : "http://localhost:3000";
+
+console.log(URL)
 
 //GLOBAL VARIABLES
 const $container = $('.container');
@@ -17,6 +19,7 @@ const getData = async () =>{
     ///////////////
     const response = await fetch(`${URL}/art`);
     const data = await response.json();
+    console.log(data)
     //Populate Container with images
     
     data.forEach((piece) => {
@@ -116,9 +119,9 @@ $('select#choice').on('change', () => {
 
 $addinput.on('click', (event) => {
     event.preventDefault()
-    getUrl(event)
+    createArt($('#url').attr('responseurl'))
 });
-
+//Multer Upload
 const getUrl = async (event) => {
     let data = new FormData();
     data.append('file', $('#url')[0].files[0])
@@ -136,7 +139,7 @@ const getUrl = async (event) => {
 const createArt = async (url) => {
     x = $('#choice').val();
     let newArt =''
-    let uploaded = url.fileUrl;
+    let uploaded = url;
     console.log(uploaded)
     if(x == 'Illustration'){
         newArt ={
@@ -332,5 +335,54 @@ const mediaQ = () => {
 }
 mediaQ(x)
 x.addListener(mediaQ)
+/////////// AWS
+
+$('#url').on('change', () =>{
+    const files = $('#url')[0].files;
+    const file = files[0];
+    if(file == null){
+        return alert('No file selected.');
+    }
+    getSignedRequest(file);
+    }
+)
+
+const getSignedRequest = (file) =>{
+    const files = file;
+    console.log(files)
+    const xml = new XMLHttpRequest();
+    xml.open('GET', `${URL}/sign-s3?file-name=${encodeURIComponent(files.name)}&file-type=${encodeURIComponent(files.type)}`);
+    xml.onreadystatechange = () => {
+        if(xml.readyState === 4) {
+            if(xml.status === 200){
+                const response = JSON.parse(xml.responseText);
+                uploadAWS(file, response.signedRequest, response.url);
+                $('#url').attr('responseUrl',response.url)
+            }
+            else{
+                alert('Could not get signed URL.')
+            }
+        }
+    };
+    console.log(xml)
+    xml.send(file)
+}
+
+const uploadAWS = (file, signedRequest, url) =>{
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', signedRequest);
+    xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4){
+            if(xhr.status === 200){
+                // $('#name').val()= url
+                console.log('Sucess')
+            }
+            else{
+                alert('could not upload file.');
+            }
+        }
+    };
+    xhr.send(file)
+}
 /////////////////////////////////
 getData()
