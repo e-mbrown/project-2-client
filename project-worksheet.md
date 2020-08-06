@@ -4,15 +4,13 @@
 
 This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
 
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
-
 |  Day | Deliverable | Status
 |---|---| ---|
 |Day 1| Project Description | Complete
-|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Incomplete
+|Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
 |Day 2| Working RestAPI | Complete
 |Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
-|Day 4| MVP & Bug Fixes | Incomplete
+|Day 4| MVP & Bug Fixes | Complete
 |Day 5| Final Touches and Present | Incomplete
 
 ## Project Description
@@ -69,10 +67,10 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | Gridding | H | 2hrs | 2hr | 2hr|
 | Regular Nav | H | 2hrs | -hr 30mins | -hr 30mins|
-| Content placement| H | 4hrs | 2hr | -hr|
+| Content placement| H | 4hrs | 2hr | 2hr|
 | Working with APIS | H | 6hrs| 6hr 06mins | 8hr 06mins |
 | Responsive | H | 5hrs | 1hr | 1hr|
-| Total | H | 24hrs| -hrs | -hrs |
+| Total | H | 24hrs| -hrs | 13hrs 36mins |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
@@ -82,11 +80,12 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Materialize | H | 4hrs | -hr | -hr|
 | Bootstrap | H | 4hrs | 2hr | 2hr|
 | Add form | L | 2hrs | 1hr | 1hr|
-| Total | H | 22hrs| 2hrs | -hrs |
+| Total | H | 22hrs| 2hrs | 2hrs |
 
 ## Additional Libraries
  FontAwesome
  Bootstrap
+ Jquery
 
 ## Code Snippet
 
@@ -115,8 +114,10 @@ x.addListener(mediaQ)
 ```
 
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
-
+ 
 #### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: app.js:360 xxx has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.                      
+**RESOLUTION**: Had a typo in the bucket name and some privary issues.
+
+**ERROR**: app.js:354 cant GET /sign-s3                      
+**RESOLUTION**: I didnt know that I had to make the route for this, I thought it was something Amazon had set up.
