@@ -12,8 +12,32 @@ const $editButton = $('.edit');
 const $del = $('.del');
 const $editSubmit = $('.editSubmit')
 
-
 ////FUNCTIONS
+// Recycled hamburger code
+const $menuBtn = $('.menub')
+let menuOpen = false;
+$($menuBtn).on('click', () =>{
+    if(!menuOpen) {
+        $menuBtn.attr('class', 'menub open')
+        menuOpen = true;
+        display()
+    }else {
+        $menuBtn.attr('class', 'menub')
+        menuOpen = false;
+        hide()
+    }
+})
+
+const display = function (){
+    $('#a, #i, #c, #s, #h ').show()
+}
+const hide = function(){
+    $('#a, #i, #c, #s, #h ').hide()
+}
+
+
+
+/// fetch request
 const getData = async () =>{
     //  API CALL
     ///////////////
@@ -85,6 +109,7 @@ const getOptions = (choice) =>{
     $('.input-group').css('display', 'none')
     $('#submit').css('display', 'none')
 
+
     if(choice == 'Comic'){
         $('#dDiv').toggle(700);
         $('#nDiv').toggle(700);
@@ -109,7 +134,7 @@ const getOptions = (choice) =>{
         $('#submit').toggle(700);
     };
 }
-
+// Captures select value to use to determine schema
 $('select#choice').on('change', () => {
     x = $('#choice').val();
     getOptions(x);
@@ -135,7 +160,7 @@ const getUrl = async (event) => {
     createArt( await results);
 }
 
-
+// CREATE
 const createArt = async (url) => {
     x = $('#choice').val();
     let newArt =''
@@ -286,7 +311,7 @@ $('#i').on('click', () => filter('Illustration'))
 $('#s').on('click', () => filter('Sketch'))
 //$('#a').on('click', () => filter())
 
-
+// Primitive filter feature sorts images on click
 
 const filter = (num) =>{
     if(num == "Home") {
@@ -315,7 +340,7 @@ const filter = (num) =>{
 }
 
 
-/////// Media query
+/////// Media query watcher
 let x = window.matchMedia('(max-width: 790px)')
 
 const mediaQ = () => {
@@ -335,7 +360,7 @@ const mediaQ = () => {
 }
 mediaQ(x)
 x.addListener(mediaQ)
-/////////// AWS
+/////////// AWS Set up
 
 $('#url').on('change', () =>{
     const files = $('#url')[0].files;
@@ -346,7 +371,7 @@ $('#url').on('change', () =>{
     getSignedRequest(file);
     }
 )
-
+//// AWS signed url, a sort of permissions thing
 const getSignedRequest = (file) =>{
     const files = file;
     console.log(files)
@@ -357,6 +382,7 @@ const getSignedRequest = (file) =>{
             if(xml.status === 200){
                 const response = JSON.parse(xml.responseText);
                 uploadAWS(file, response.signedRequest, response.url);
+                //captures url so it can be stored in the database later
                 $('#url').attr('responseUrl',response.url)
             }
             else{
@@ -367,7 +393,7 @@ const getSignedRequest = (file) =>{
     console.log(xml)
     xml.send(file)
 }
-
+//// Actually sends file to my bucket
 const uploadAWS = (file, signedRequest, url) =>{
     const xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);

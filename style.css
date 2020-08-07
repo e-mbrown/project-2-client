@@ -20,11 +20,70 @@ img {
 .fa {
     font-size: 50px;
 }
+.menub{
+    display: none;
+    position: relative;
+    left: 80%;
+    height: 40px;
+    bottom:-10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    justify-self: end;
+}
+.burger{
+    position: relative;
+    left: 10px;
+    width: 35px;
+    height: 6px;
+    background: black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,100, 47, .2);
+    transition: all .5s ease-in-out;
+}
+.burger::before, .burger::after{
+    content: '';
+    position: absolute;
+    left: 1%;
+    width: 35px;
+    height: 6px;
+    background:black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,100, 47, .2);
+    transition: all .5s ease-in-out;
+}
+.burger::before {
+    transform: translateY(-10px); 
+}
+.burger::after {
+    transform:translateY(10px);
+}
+/*Animation*/
+.menub.open .burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+.menub.open .burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+.menub.open .burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+/*Hamburger end*/
 @media (max-width: 790px) {
     .col-9,
     .col {
         width: 100%;
-
+    }
+    .menub {
+        display: inline;
+    }
+    #a, #i, #c, #s, #h {
+        display: none;
     }
 }
 @media (min-width: 791px) and (max-width: 991px) {
@@ -35,5 +94,11 @@ img {
     .col-9 
     .col{
         width: 100%;
+    }
+    .menub {
+        display: block;
+    }
+    #a, #i, #c, #s, #h  {
+        display: block;
     }
 }
