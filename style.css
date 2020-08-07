@@ -86,7 +86,7 @@ img {
         display: none;
     }
 }
-@media (min-width: 791px) and (max-width: 991px) {
+@media (min-width: 791px) and (max-width: 1500px) {
     .col-9,
     .col {
         width: 50%;
@@ -96,9 +96,9 @@ img {
         width: 100%;
     }
     .menub {
-        display: block;
+        display: none;
     }
     #a, #i, #c, #s, #h  {
-        display: block;
+        display: inline;
     }
 }
